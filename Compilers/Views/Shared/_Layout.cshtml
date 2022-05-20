@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/home.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" />
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+            var availableTags = ["Category", "Derive", "If", "Else", "Ilap", "Silap", "Clop", "Series", "Ilapf",
+                "Silapf", "None", "Logical", "terminatethis", "Rotatewhen", "Continuewhen", "Replywith", "Seop", "Check",
+                "situationof", "Program", "End", "Using"];
+            console.log("IM HEREEEEE");
+
+            var minWordLength = 1;
+            function split(val) {
+                return val.split('\n');
+            }
+
+            function extractLast(term) {
+                return split(term).pop();
+            }
+            $("#textarea1") // jQuery Selector
+                // don't navigate away from the field on tab when selecting an item
+                .bind("keydown", function (event) {
+                    if (event.keyCode === $.ui.keyCode.TAB && $(this).data("ui-autocomplete").menu.active) {
+                        event.preventDefault();
+                    }
+                }).autocomplete({
+                    minLength: minWordLength,
+                    source: function (request, response) {
+                        // delegate back to autocomplete, but extract the last term
+                        var term = extractLast(request.term);
+                        if (term.length >= minWordLength) {
+                            response($.ui.autocomplete.filter(availableTags, term));
+                        }
+                    },
+                    focus: function () {
+                        // prevent value inserted on focus
+                        return false;
+                    },
+                    select: function (event, ui) {
+                        var terms = split(this.value);
+                        // remove the current input
+                        terms.pop();
+                        // add the selected item
+                        terms.push(ui.item.value);
+                        // add placeholder to get the comma-and-space at the end
+                        terms.push("");
+                        this.value = terms.join("\n");
+                        return false;
+                    }
+                });
+        });
+    </script>
+</head>
+<body>
+  
+    <div>
+        @RenderBody()      
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
