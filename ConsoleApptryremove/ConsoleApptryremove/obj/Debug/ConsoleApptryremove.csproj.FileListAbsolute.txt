@@ -1,0 +1,7 @@
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\obj\Debug\ConsoleApptryremove.csprojAssemblyReference.cache
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\obj\Debug\ConsoleApptryremove.csproj.CoreCompileInputs.cache
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\bin\Debug\ConsoleApptryremove.exe.config
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\bin\Debug\ConsoleApptryremove.exe
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\bin\Debug\ConsoleApptryremove.pdb
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\obj\Debug\ConsoleApptryremove.exe
+C:\Users\GCC 2\source\repos\ConsoleApptryremove\ConsoleApptryremove\obj\Debug\ConsoleApptryremove.pdb
